@@ -153,7 +153,7 @@ La base de datos ocupada es sqlite3 para el almacenamiento de la información qu
 
 ## Despliegue
 
-Para desplegar el servicio de forma local debe realizar un git pull `git pull` cambiar de directorio `cd ./sorteo-talana` y ejecutar `docker-compose up --build`
+Para desplegar el servicio de forma local debe realizar un git clone `git clone https://github.com/ianCardenasCastillo/sorteo-talana.git` cambiar de directorio `cd ./sorteo-talana` y ejecutar `docker-compose up --build`
 
 El despliegue consta de 3 servicios llamados `redis`, `celery` y `api`
 
