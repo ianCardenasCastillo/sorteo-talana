@@ -9,9 +9,9 @@ from django.core.mail import EmailMultiAlternatives
 
 
 @shared_task
-def send_email(receiver,id):
-    subject= 'Celery'
-    message= ''' 
+def send_email(receiver, id):
+    subject = 'Celery'
+    message = ''' 
       
         <!DOCTYPE html>
         <html>
@@ -286,8 +286,7 @@ def send_email(receiver,id):
         </body>
         </html>
     '''
-    receiver= receiver
-    send_mail_to(subject,message,receiver)
+    receiver = receiver
+    send_mail_to(subject, message, receiver)
 
     return "Email Sended"
-

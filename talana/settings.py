@@ -29,15 +29,13 @@ SECRET_KEY = 'django-insecure-dhmieka$s-*07!r-eghcxw*r)+8@&nufczo3o(t=@&4wjd&(bf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-APPEND_SLASH=False
+APPEND_SLASH = False
 
 ALLOWED_HOSTS = []
 
 # Celery Configuration Options
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
-# CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
-# BROKER_URL = 'django://'
 
 CELERY_TIMEZONE = "Australia/Tasmania"
 CELERY_TASK_TRACK_STARTED = True
@@ -45,10 +43,9 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_RESULT_BACKEND = 'django-cache'
-# CELERY_CACHE_BACKEND = 'default'
 
 # Setting for Sending Emails
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.ethereal.email'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
@@ -110,15 +107,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# django setting.
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-#         'LOCATION': 'my_cache_table',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
