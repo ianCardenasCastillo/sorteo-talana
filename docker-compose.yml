@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+    redis:
+        image: redis:alpine
+    celery:
+        restart: always
+        build:
+            context: .
+        command: celery -A talana worker -l info
+        volumes:
+            - ./:/src
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+            - CELERY_BROKER=redis://redis:6379/0
+            - CELERY_BACKEND=redis://redis:6379/0
+        depends_on:
+            - redis
+            - api
+    api:
+        container_name: talana-sorteo
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./:/src
+        command: python manage.py runserver 0.0.0.0:8000
